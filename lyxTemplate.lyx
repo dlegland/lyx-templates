@@ -1,0 +1,2630 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass scrartcl
+\begin_preamble
+\usepackage{xcolor}
+\definecolor{bl}{rgb}{0.0,0.2,0.6} 
+
+
+% package that modifies style of section headers
+\addtokomafont{section}{\color{bl}\scshape \selectfont}
+\addtokomafont{subsection}{\color{bl}\scshape \selectfont}
+\addtokomafont{subsubsection}{\color{bl}\scshape \selectfont}
+%\allsectionsfont{\color{bl}\scshape \selectfont }
+
+% setup font style for different title elements
+\setkomafont{title}{\color{bl} \bfseries \scshape}
+\setkomafont{author}{\centering \small}
+\setkomafont{date}{\centering \small}
+
+
+% Change the abstract environment
+\usepackage[runin]{abstract}			% runin option for a run-in title
+\setlength\absleftindent{30pt}		% left margin
+\setlength\absrightindent{30pt}		% right margin
+\abslabeldelim{\quad }						% 
+\setlength{\abstitleskip}{-10pt}
+\renewcommand{\abstractname}{}
+\renewcommand{\abstracttextfont}{\color{bl} \small \slshape }	% slanted text
+
+
+% Custom headers and footers
+\usepackage{fancyhdr}
+% Enabling the custom headers/footers
+\pagestyle{fancy}
+\usepackage{lastpage}	
+% Header (empty)
+% Haut a gauche - page g : chapitre (sl), page d : page (bf) - plain : rien
+\lhead[\fancyplain{}{\slshape\leftmark}]{\fancyplain{}{}}
+% rien au centre
+\chead{}
+% Haut a droite - page g : page (bf), page d : section (sl) - plain : rien
+\rhead[\fancyplain{}{}]{\fancyplain{}{\slshape\rightmark}}
+
+% Footer (you may change this to your own needs)
+\lfoot{\footnotesize \jobname.lyx}
+\cfoot{}
+\rfoot{\footnotesize page \thepage\ sur \pageref{LastPage}}	% "Page 1 of 2"
+\renewcommand{\headrulewidth}{0.0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% chap a gauche sans numero, rien a droite
+%\renewcommand{\chaptermark}[1]{\markboth{\textit{#1}}{}}
+\renewcommand{\sectionmark}[1]{\markboth{\thesection\ #1}{}}
+% section à droite avec numero
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+
+
+% 
+\usepackage[format=plain,labelfont=bf]{caption}
+\captionsetup[figure]{name=Figure}
+\DeclareCaptionLabelSeparator{colon}{: }
+
+% Algorithmes
+\usepackage{algorithmic}
+\usepackage{algorithm}
+
+\author{D. Legland}
+\date{\today}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language french
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "md-charter" "default"
+\font_sans "default" "default"
+\font_typewriter "beramono" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format pdf2
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement h
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize a4paper
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language french
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\listings_params "numbers=none,tabsize=2,frame=single,breaklines=true,basicstyle={\scriptsize},aboveskip=5pt,language={[LaTeX]TeX}"
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Patron de documents pour \SpecialChar LaTeX
+/\SpecialChar LyX
+
+\end_layout
+
+\begin_layout Abstract
+Le système de composition de documents \SpecialChar LaTeX
+ est très apprécié pour la rédaction
+ de documents scientifiques, notamment ceux contenant des formules et /
+ ou des listings de code.
+ Par contre la maquette fournie par défaut est un peu datée.
+ Ce document propose une liste de paquetages \SpecialChar LaTeX
+ et des options de configuration
+ à utiliser sous \SpecialChar LyX
+ pour obtenir des documents à peu près présentables.
+ Une configuration par défaut est fournie dans un patron de document utilisable
+ directement sous \SpecialChar LyX
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+Le logiciel \SpecialChar LaTeX
+ est largement utilisé pour la production de documents scientifiques
+, notamment du fait de sa capacité à gérer les formules mathématiques, l'intégra
+tion de code source, le rendu graphique final, et les possibilités d'interconnex
+ion avec d'autres logiciels.
+ Par contre, la mise en page par défaut des documents est relativement sobre,
+ voire pauvre, et de surcroît plutôt configurée pour un environnement en
+ anglais.
+ 
+\end_layout
+
+\begin_layout Standard
+Ce document cherche donc à répertorier les différents points qui permettent
+ d'obtenir rapidement un document 
+\begin_inset Quotes fld
+\end_inset
+
+présentable
+\begin_inset Quotes frd
+\end_inset
+
+.
+ L'ensemble des configurations est intégrée à un patron de document (template)
+ pour \SpecialChar LyX
+, ce qui permet de le mettre en oeuvre rapidement.
+ 
+\end_layout
+
+\begin_layout Standard
+On suppose pour la suite une certaine connaissance de l'environnement \SpecialChar LaTeX
+,
+ de la structure d'un fichier .'tex', ainsi que de la configuration d'une
+ installation \SpecialChar LaTeX
+.
+\end_layout
+
+\begin_layout Section
+Rappels sur \SpecialChar LaTeX
+
+\end_layout
+
+\begin_layout Standard
+\SpecialChar LaTeX
+ est un système de composition de documents.
+ Un document 
+\begin_inset Quotes fld
+\end_inset
+
+source
+\begin_inset Quotes frd
+\end_inset
+
+, au format .tex, est compilé en un document destiné à la visualisation ou
+ à l'impression, au format postscript ou pdf.
+ Au fil des années plusieurs moteurs \SpecialChar LaTeX
+ ont vu le jour :
+\end_layout
+
+\begin_layout Description
+\SpecialChar TeX
+ l'orginal, développé par Donald Knuth.
+ 
+\end_layout
+
+\begin_layout Description
+\SpecialChar LaTeX
+ enrichissement de \SpecialChar TeX
+ par un ensemble de macros, qui constitue le moteur le
+ plus largement répandu.
+ A noter que le format de sortie par défaut est soit du dvi (obsolète ?),
+ soit du postscript.
+\end_layout
+
+\begin_layout Description
+pdf\SpecialChar LaTeX
+ permet de faire directement la conversion du code \SpecialChar LaTeX
+ vers pdf sans passer
+ par du postscript.
+ Par contre, la gestion des images n'est pas la même : pdf\SpecialChar LaTeX
+ gère les PNG
+ et les JPEG, alors que \SpecialChar LaTeX
+ requiert des fichiers postscript encapsulés.
+\end_layout
+
+\begin_layout Description
+Xe\SpecialChar TeX
+ améliorations de (La)\SpecialChar TeX
+ pour des environnements multilingues, en particulier
+ le français
+\end_layout
+
+\begin_layout Description
+Lua\SpecialChar TeX
+ devrait être à terme le successeur de \SpecialChar TeX
+, en fournissant une interface
+ de programmation plus intuitive basée sur le langage Lua
+\end_layout
+
+\begin_layout Standard
+Bien qu'il soit possible d'éditer un document \SpecialChar LaTeX
+ à l'aide d'un éditeur de
+ texte classique, il existe plusieurs possiblités pour éditer un document
+ tex de manière graphique.
+ Ce document se focalise plus particulièrement sur le logiciel \SpecialChar LyX
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://www.lyx.org/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+, qui propose une approche de type 
+\begin_inset Quotes fld
+\end_inset
+
+WYSIWYM
+\begin_inset Quotes frd
+\end_inset
+
+, pour 
+\begin_inset Quotes fld
+\end_inset
+
+What you see is what you mean
+\begin_inset Quotes frd
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Rédaction des documents en français
+\end_layout
+
+\begin_layout Standard
+Les conventions typographiques ne sont pas les mêmes selon les langages
+ : les espaces ne sont pas positionnées au même endroit, certains symboles
+ sont différents...
+ Sous \SpecialChar LaTeX
+, il faut inclure le paquetage babel.
+ Sous \SpecialChar LyX
+, cela se fait simplement en sélectionnant la langue française pour
+ le document.
+\end_layout
+
+\begin_layout Standard
+Rappel de quelques différences typographiques anglais-français :
+\end_layout
+
+\begin_layout Itemize
+les espaces autours des signes de ponctuations ne sont pas les mêmes (exemple
+ : pas d'espace en anglais avant les signes doubles : 
+\begin_inset Quotes fld
+\end_inset
+
+:
+\begin_inset Quotes frd
+\end_inset
+
+, 
+\begin_inset Quotes fld
+\end_inset
+
+!
+\begin_inset Quotes frd
+\end_inset
+
+, 
+\begin_inset Quotes fld
+\end_inset
+
+?
+\begin_inset Quotes frd
+\end_inset
+
+....)
+\end_layout
+
+\begin_layout Itemize
+les listes à puce sont notées par des tirets en français, par des points
+ en anglais
+\end_layout
+
+\begin_layout Itemize
+les guillemets ne sont pas les mêmes : 
+\begin_inset Quotes fld
+\end_inset
+
+guillemets français
+\begin_inset Quotes frd
+\end_inset
+
+, 
+\lang english
+"guillemets anglais"
+\end_layout
+
+\begin_layout Itemize
+les intitulés par défaut des figures ou des tables sont différents
+\end_layout
+
+\begin_layout Itemize
+la taille du papier par défaut n'est pas la même...
+\end_layout
+
+\begin_layout Subsection
+Paquetage KOMA-Script
+\end_layout
+
+\begin_layout Standard
+Pour la mise en page générale du document (tailles des marges, placement
+ des titres de sections...), il est conseillé de faire confiance au paquetage
+ 
+\begin_inset Quotes fld
+\end_inset
+
+
+\family typewriter
+KOMA-Script
+\family default
+
+\begin_inset Quotes frd
+\end_inset
+
+, dont la vocation est justement d'adapter \SpecialChar LaTeX
+ aux conventions typographiques
+ européennes.
+ Sous \SpecialChar LyX
+, cela se fait en choisissant la classe de document 
+\begin_inset Quotes fld
+\end_inset
+
+Article KOMA-Script
+\begin_inset Quotes frd
+\end_inset
+
+ ou 
+\begin_inset Quotes fld
+\end_inset
+
+Report KOMA-Script
+\begin_inset Quotes frd
+\end_inset
+
+ selon les cas (menu 
+\begin_inset Quotes fld
+\end_inset
+
+Document->Paramètres->Classe de Document
+\begin_inset Quotes frd
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+Certains éléments du document (titre, auteur, date...) doivent être spécifiés
+ dans le préambule plutôt que dans le corps du document.
+ Exemple :
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+author{Moi-Même}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+date{
+\backslash
+today}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Certaines fonctionnalités (exemple : les en-tête et pieds de page) sont
+ gérées différemment avec le paquetage KOMA-Script, ce qui peut nécessiter
+ une adaptation du préambule.
+\end_layout
+
+\begin_layout Subsection
+Français et mathématiques
+\end_layout
+
+\begin_layout Standard
+On peut vite rencontrer des problèmes de mise en forme quand on passe en
+ mode mathématique.
+ Quelques paquetages utiles :
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+icomma
+\family default
+ permet de remplacer le point décimal par une virgule
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+dcolumn
+\family default
+ permet d'aligner les valeurs numériques dans un tableau
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Personnaliser la présentation
+\end_layout
+
+\begin_layout Subsection
+Polices de caractères
+\end_layout
+
+\begin_layout Standard
+Il est préférable d'utiliser une police de type 
+\begin_inset Quotes fld
+\end_inset
+
+roman
+\begin_inset Quotes frd
+\end_inset
+
+ (avec empattements) pour le texte imprimé, et de garder les polices sans
+ empattements pour les titres ou pour les présentations.
+ 
+\end_layout
+
+\begin_layout Standard
+Une difficulté est d'avoir une police qui gère à la fois les caractères
+ accentués, et qui accepte un mode mathématique.
+ En pratique la police 
+\begin_inset Quotes fld
+\end_inset
+
+BitstreamCharter (Mathdesign)
+\begin_inset Quotes frd
+\end_inset
+
+ semble la plus adaptée, et offre un rendu plutôt agréable.
+\end_layout
+
+\begin_layout Standard
+Pour la présentation des codes sources, on utilise en général une police
+ à chasse fixe (
+\family typewriter
+
+\backslash
+ttfamily
+\family default
+).
+ Parmi celles fournies par défaut, la police 
+\begin_inset Quotes fld
+\end_inset
+
+Bera Mono
+\begin_inset Quotes frd
+\end_inset
+
+ donne une police agréable et pas trop large, ce qui peut être utile quand
+ on affiche des lignes de code assez longues.
+\end_layout
+
+\begin_layout Subsection
+Personnalisation des titres de section
+\end_layout
+
+\begin_layout Standard
+En \SpecialChar LaTeX
+ classique, le paquetage 
+\begin_inset Quotes fld
+\end_inset
+
+
+\family typewriter
+sectsty
+\family default
+
+\begin_inset Quotes frd
+\end_inset
+
+ permet de personnaliser le style des titres de section, sous-section, de
+ l'abstract...
+ 
+\end_layout
+
+\begin_layout Standard
+Si on utilise 
+\family typewriter
+KOMA-script
+\family default
+, il faut utiliser d'autres commandes spécifiques à ce paquetage (
+\family typewriter
+
+\backslash
+addtokomafont
+\family default
+, 
+\family typewriter
+
+\backslash
+setkomafont
+\family default
+...), mais la documentation fournie permet de s'en sortir sans trop de soucis.
+ Les paramètres pour ce document sont les suivants :
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+usepackage{xcolor}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+definecolor{bl}{rgb}{0.0,0.2,0.6} % define a dark-blue color
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+% package that modifies style of section headers
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+addtokomafont{section}{
+\backslash
+color{bl}
+\backslash
+scshape 
+\backslash
+selectfont}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+addtokomafont{subsection}{
+\backslash
+color{bl}
+\backslash
+scshape 
+\backslash
+selectfont}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+addtokomafont{subsubsection}{
+\backslash
+color{bl}
+\backslash
+scshape 
+\backslash
+selectfont}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+% setup font style for different title elements
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+setkomafont{title}{
+\backslash
+color{bl} 
+\backslash
+bfseries 
+\backslash
+scshape}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+setkomafont{author}{
+\backslash
+centering 
+\backslash
+small}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+setkomafont{date}{
+\backslash
+centering 
+\backslash
+small}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+En-têtes et pieds de pages
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:entetes-et-pieds-de-page"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La personnalisation des en-têtes et des pieds de page permet de donner un
+ aspect beaucoup plus finalisé aux documents, et facilite la lecture en
+ donnant les indications sur la page courante, les titres de section en
+ cours...
+\end_layout
+
+\begin_layout Standard
+Il existe deux possibilités pour définir les en-têtes et pieds de page :
+\end_layout
+
+\begin_layout Itemize
+le paquetage 
+\family typewriter
+fancyhdr
+\family default
+ est la solution la plus ancienne, mais peut présenter des incompatibilités
+ avec KOMA-Script
+\end_layout
+
+\begin_layout Itemize
+le paquetage 
+\family typewriter
+scrlayer-scrpage
+\family default
+ est plus récent, et est mieux intégré à KOMA-Script.
+ C'est la solution préconisée pour les documents basés sur KOMA-Script.
+\end_layout
+
+\begin_layout Standard
+Pour la suite j'essaie de donner des exemples pour les deux possibilités.
+\end_layout
+
+\begin_layout Subsubsection
+Commandes utiles
+\end_layout
+
+\begin_layout Standard
+Pour afficher le nom du fichier (ce qui peut être très pratique pour retrouver
+ a posteriori le fichier ayant produit le document...), il faut passer par
+ la commande 
+\family typewriter
+
+\backslash
+jobname
+\family default
+.
+ On peut aussi utiliser le paquetage 
+\family typewriter
+lastpage
+\family default
+ qui permet d'afficher le nombre total de pages.
+\end_layout
+
+\begin_layout Subsubsection
+Article avec scrlayer-scrpage
+\end_layout
+
+\begin_layout Standard
+Exemple pour un document de type 
+\begin_inset Quotes fld
+\end_inset
+
+article
+\begin_inset Quotes frd
+\end_inset
+
+ :
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+% Custom headers and footers using KOMA-Script
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+usepackage{scrlayer-scrpage}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+usepackage{lastpage}	% for page numbering	
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+% header
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lehead*{
+\backslash
+slshape
+\backslash
+rightmark}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+rohead*{
+\backslash
+slshape
+\backslash
+rightmark}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+% footer
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+ofoot{
+\backslash
+footnotesize page 
+\backslash
+thepage
+\backslash
+ / 
+\backslash
+pageref{LastPage}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+ifoot{
+\backslash
+footnotesize 
+\backslash
+jobname}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Article avec fancyhdr
+\end_layout
+
+\begin_layout Standard
+Le paquetage 
+\family typewriter
+fancyhdr
+\family default
+ permet de définir les blocs qui seront utilisés à gauche, au centre et
+ à droite des en-têtes et des pieds de page.
+ En utilisant les macros, on peut inclure la page courante, ou le nom du
+ chapitre ou de la section en cours.
+ Il est aussi possible de changer le contenu pour les pages paires et impaires,
+ ce qui permet par exemple d'avoir le chapitre courant sur la page de gauche,
+ et la section courante sur la page de droite.
+\end_layout
+
+\begin_layout Standard
+Exemple pour un document de type 
+\begin_inset Quotes fld
+\end_inset
+
+article
+\begin_inset Quotes frd
+\end_inset
+
+ :
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+% Custom headers and footers
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+usepackage{fancyhdr}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagestyle{fancy}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+usepackage{lastpage}	% for page numbering
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+% Configuration of header
+\end_layout
+
+\begin_layout Plain Layout
+
+% left side of the header - page g : chapter (sl), page d : page (bf) -
+ plain : nothing
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lhead[
+\backslash
+fancyplain{}{
+\backslash
+slshape
+\backslash
+rightmark}]{
+\backslash
+fancyplain{}{}}
+\end_layout
+
+\begin_layout Plain Layout
+
+% nothing in the center
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+chead{}
+\end_layout
+
+\begin_layout Plain Layout
+
+% right side of the header - page g : page (bf), page d : section (sl) -
+ plain : nothing
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+rhead[
+\backslash
+fancyplain{}{}]{
+\backslash
+fancyplain{}{
+\backslash
+slshape
+\backslash
+rightmark}}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+% Configuration of footer
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lfoot{
+\backslash
+footnotesize 
+\backslash
+jobname.lyx}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cfoot{}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+rfoot{
+\backslash
+footnotesize Page 
+\backslash
+thepage
+\backslash
+ of 
+\backslash
+pageref{LastPage}}	% "Page 1 of 2"
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+headrulewidth}{0.0pt}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+footrulewidth}{0.4pt}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+% right section with number
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+sectionmark}[1]{
+\backslash
+markright{
+\backslash
+thesection
+\backslash
+ #1}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Rapport avec scrlayer-scrpage
+\end_layout
+
+\begin_layout Standard
+Les rapports sont la plupart du temps en double page.
+ On peut donc vouloir spécifier des en-têtes ou pieds de pages différents
+ pour les pages paires ou impaires.
+ 
+\end_layout
+
+\begin_layout Standard
+Les commandes pour configurer les en-têtes sont en trois parties, du type
+ 
+\begin_inset Quotes fld
+\end_inset
+
+
+\backslash
+lehead
+\begin_inset Quotes frd
+\end_inset
+
+ ou 
+\begin_inset Quotes fld
+\end_inset
+
+
+\backslash
+rofoot
+\begin_inset Quotes frd
+\end_inset
+
+ :
+\end_layout
+
+\begin_layout Itemize
+la première lettre correspond à la position gauche (
+\begin_inset Quotes fld
+\end_inset
+
+l
+\begin_inset Quotes frd
+\end_inset
+
+ pour 
+\begin_inset Quotes fld
+\end_inset
+
+left
+\begin_inset Quotes frd
+\end_inset
+
+), centrale (
+\begin_inset Quotes fld
+\end_inset
+
+c
+\begin_inset Quotes frd
+\end_inset
+
+) ou droite (
+\begin_inset Quotes fld
+\end_inset
+
+r
+\begin_inset Quotes frd
+\end_inset
+
+ pour 
+\begin_inset Quotes fld
+\end_inset
+
+right
+\begin_inset Quotes frd
+\end_inset
+
+), 
+\end_layout
+
+\begin_layout Itemize
+la deuxième lettre correspond aux pages paires (
+\begin_inset Quotes fld
+\end_inset
+
+e
+\begin_inset Quotes frd
+\end_inset
+
+ pour 
+\begin_inset Quotes fld
+\end_inset
+
+even
+\begin_inset Quotes frd
+\end_inset
+
+) ou impaires (
+\begin_inset Quotes fld
+\end_inset
+
+o
+\begin_inset Quotes frd
+\end_inset
+
+ pour 
+\begin_inset Quotes fld
+\end_inset
+
+odd
+\begin_inset Quotes frd
+\end_inset
+
+), 
+\end_layout
+
+\begin_layout Itemize
+les lettres suivantes correspondent à l'en-tête (
+\begin_inset Quotes fld
+\end_inset
+
+head
+\begin_inset Quotes frd
+\end_inset
+
+) ou au pied de page (
+\begin_inset Quotes fld
+\end_inset
+
+foot
+\begin_inset Quotes frd
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Standard
+Ce qui fait donc 12 commandes différentes.
+ On peut aussi vouloir raisonner en positions 
+\begin_inset Quotes fld
+\end_inset
+
+externe
+\begin_inset Quotes frd
+\end_inset
+
+ (à gauche des pages paires et à droites des pages impaires) ou 
+\begin_inset Quotes fld
+\end_inset
+
+interne
+\begin_inset Quotes frd
+\end_inset
+
+ (vers l'intérieur, à droite des pages paires, et à gauche des pages impaires).
+ Les commandes sont du type 
+\begin_inset Quotes fld
+\end_inset
+
+
+\backslash
+ohead
+\begin_inset Quotes frd
+\end_inset
+
+ ou 
+\begin_inset Quotes fld
+\end_inset
+
+
+\backslash
+ifoot
+\begin_inset Quotes frd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Exemple de configuration, qui affiche le titre du chapitre en haut à gauche
+ des pages paires, le titre de section en haut à droite des pages impaires,
+ le numéro de page en bas vers l'extérieur, et le nom du document en bas
+ vers l'intérieur :
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+% Custom headers and footers for reports using KOMA-Script
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+usepackage{scrlayer-scrpage}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+usepackage{lastpage}	% for page numbering	
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+% Left header: chapter title on even pages
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lehead{
+\backslash
+slshape
+\backslash
+leftmark}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lohead{}
+\end_layout
+
+\begin_layout Plain Layout
+
+% Center header: empty
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+chead{}
+\end_layout
+
+\begin_layout Plain Layout
+
+% Right header: section title on odd pages
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+rehead{}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+rohead{
+\backslash
+slshape
+\backslash
+rightmark}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+% Outer footer (left of even pages, right of odd pages)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+ofoot[
+\backslash
+footnotesize page 
+\backslash
+thepage
+\backslash
+ / 
+\backslash
+pageref{LastPage}]{
+\backslash
+footnotesize page 
+\backslash
+thepage
+\backslash
+ / 
+\backslash
+pageref{LastPage}}
+\end_layout
+
+\begin_layout Plain Layout
+
+% Center footer: empty
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cfoot{}
+\end_layout
+
+\begin_layout Plain Layout
+
+% Inner footer (right of even pages, left of odd pages)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+ifoot[
+\backslash
+footnotesize 
+\backslash
+jobname]{
+\backslash
+footnotesize 
+\backslash
+jobname}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+% left chapter no number, nothing on the right
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+chaptermark}[1]{
+\backslash
+markboth{
+\backslash
+thechapter
+\backslash
+ #1}{}}
+\end_layout
+
+\begin_layout Plain Layout
+
+% right section with number
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+sectionmark}[1]{
+\backslash
+markright{
+\backslash
+thesection
+\backslash
+ #1}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Remarques :
+\end_layout
+
+\begin_layout Itemize
+les en-têtes ne s'affichent pas sur la première page de chaque chapitre,
+ il faut donc un peu de contenu pour les voir apparaître
+\end_layout
+
+\begin_layout Itemize
+la configuration présentée force l'affichage des pieds de page aussi pour
+ les pages de chapitre.
+ Pour les enlever, il suffit de retirer le contenu entre crochets des options
+ 
+\backslash
+ofoot et 
+\backslash
+ifoot.
+\end_layout
+
+\begin_layout Subsubsection
+Rapport avec fancyhdr
+\end_layout
+
+\begin_layout Standard
+Exemple de configuration pour un document de type 
+\begin_inset Quotes fld
+\end_inset
+
+rapport
+\begin_inset Quotes frd
+\end_inset
+
+ : 
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+% Custom headers and footers
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+usepackage{fancyhdr}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagestyle{fancy}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+usepackage{lastpage}	% for page numbering	
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+% Configuration of header
+\end_layout
+
+\begin_layout Plain Layout
+
+% left side of the header - page g : chapter (sl), page d : page (bf) -
+ plain : nothing
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lhead[
+\backslash
+fancyplain{}{
+\backslash
+slshape
+\backslash
+leftmark}]{
+\backslash
+fancyplain{}{}}
+\end_layout
+
+\begin_layout Plain Layout
+
+% nothing in the center
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+chead{}
+\end_layout
+
+\begin_layout Plain Layout
+
+% right side of the header - page g : page (bf), page d : section (sl) -
+ plain : nothing
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+rhead[
+\backslash
+fancyplain{}{}]{
+\backslash
+fancyplain{}{
+\backslash
+slshape
+\backslash
+rightmark}}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+% Configuration of footer
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lfoot{
+\backslash
+footnotesize 
+\backslash
+jobname.lyx}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cfoot{}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+rfoot{
+\backslash
+footnotesize Page 
+\backslash
+thepage
+\backslash
+ / 
+\backslash
+pageref{LastPage}}	% "Page 1 / 2"
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+headrulewidth}{0.0pt}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+footrulewidth}{0.4pt}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+% left page: chapter no number, nothing on the right
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+chaptermark}[1]{
+\backslash
+markboth{
+\backslash
+thechapter
+\backslash
+ #1}{}}
+\end_layout
+
+\begin_layout Plain Layout
+
+% right page: section with number
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+sectionmark}[1]{
+\backslash
+markright{
+\backslash
+thesection
+\backslash
+ #1}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Personnalisation de l'abstract 
+\end_layout
+
+\begin_layout Standard
+On peut utiliser le paquetage 
+\family typewriter
+abstract
+\family default
+ (!).
+ Un exemple de configuration correspondant à la mise en page du document
+ courant est donné dans le listing suivant (attention, la définition de
+ couleur correspond à celle des titres de section) :
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+% Change the abstract environment
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+usepackage[runin]{abstract}       % runin option for a run-in title
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+setlength
+\backslash
+absleftindent{30pt}     % left margin
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+setlength
+\backslash
+absrightindent{30pt}    % right margin
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+abslabeldelim{
+\backslash
+quad } 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+setlength{
+\backslash
+abstitleskip}{-10pt}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+abstractname}{}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+abstracttextfont}{
+\backslash
+color{bl} 
+\backslash
+small 
+\backslash
+slshape }	% slanted text
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Personnalisation de la légende des figures
+\end_layout
+
+\begin_layout Standard
+Là aussi il est possible de faire des choses.
+ Une possibilité est d'utiliser le paquetage 
+\family typewriter
+caption
+\family default
+, qui permet de changer l'étiquette associée aux figures, ainsi que le symbole
+ de séparation.
+ Exemple de configuration pour franciser un document :
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+usepackage[format=plain,labelfont=bf]{caption}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+captionsetup[figure]{name=Figure}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+DeclareCaptionLabelSeparator{colon}{: }
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Couleurs
+\end_layout
+
+\begin_layout Standard
+La gestion des couleurs se fait avec le paquetage 
+\family typewriter
+xcolor
+\family default
+.
+ L'option dvipsnames permet d'accéder directement à une liste prédéfinie
+ de noms de couleur.
+\end_layout
+
+\begin_layout Standard
+Il peut être nécessaire de forcer le passage des arguments par la commande
+ 
+\family typewriter
+
+\backslash
+PassOptionToPackage
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+PassOptionsToPackage{usenames,dvipsnames}{xcolor}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+usepackage[usenames,dvipsnames]{xcolor}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+usepackage[T1]{fontenc}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Informatique
+\end_layout
+
+\begin_layout Subsection
+Affichage des listings
+\end_layout
+
+\begin_layout Standard
+On peut afficher les morceaux de code informatiques grâce au paquetage 
+\family typewriter
+listings
+\family default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+La configuration se fait au début du document, grâce à la commande lstset.
+ Exemple de configuration :
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstset{numbers=left, tabsize=2, frame=single, breaklines=true, basicstyle=
+\backslash
+scriptsize, aboveskip=5pt}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sous LyX, on peut rentrer les paramètres directement dans le panneau accessible
+ via le menu Document->Paramètres...->Listings.
+\end_layout
+
+\begin_layout Subsubsection
+Listings Matlab
+\end_layout
+
+\begin_layout Standard
+Le paquetage 
+\series bold
+mcode
+\series default
+ permet de simplifier l'affichage des listings Matlab.
+ Par contre il n'est pas très maintenu et présente quelques incompatibilités
+ avec KOMA-script.
+ Il peut être nécessaire d'ajouter le paquetage 
+\begin_inset Quotes fld
+\end_inset
+
+textcomp
+\begin_inset Quotes frd
+\end_inset
+
+ pour faciliter la gestion des caractères accentués.
+\end_layout
+
+\begin_layout Standard
+Le paquetage 
+\series bold
+matlab-prettifier
+\series default
+ est une alternative plus récente à mcode, et semble plus fonctionnel.
+\end_layout
+
+\begin_layout Subsection
+Algorithmes
+\end_layout
+
+\begin_layout Standard
+Dans le cas où on souhaite présenter un algorithme en pseudo-code, le paquetage
+ 
+\family typewriter
+algorithmic
+\family default
+ est très pratique.
+ 
+\end_layout
+
+\begin_layout Standard
+Exemple d'algorithme :
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{algorithmic}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE $A$ et $B$ sont deux entiers naturels
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE $r
+\backslash
+leftarrow 1$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+WHILE{$r
+\backslash
+neq 0$}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE $r
+\backslash
+leftarrow A$ mod$(B)$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE $A
+\backslash
+leftarrow B$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE $B
+\backslash
+leftarrow C$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+ENDWHILE
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{algorithmic}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ce qui donne le résultat de l'algorithme suivant :
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{algorithmic}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE $A$ et $B$ sont deux entiers naturels
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE $r
+\backslash
+leftarrow 1$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+WHILE{$r
+\backslash
+neq 0$}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE $r
+\backslash
+leftarrow A$ mod$(B)$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE $A
+\backslash
+leftarrow B$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE $B
+\backslash
+leftarrow C$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+ENDWHILE
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{algorithmic}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Il est conseillé d'inclure les algorithmes dans des flottants.
+ Des flottants spécifiques aux algorithmes existent, en utilisant le paquetage
+ 
+\family typewriter
+algorithm
+\family default
+ (Exemple
+\begin_inset space ~
+\end_inset
+
+: Alg.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{alg:Exemple-Algo}
+\end_layout
+
+\end_inset
+
+).
+ Il est aussi possible de générer la table des algorithmes.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{algorithm}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+caption{Exemple d'algorithme}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+label{alg:Exemple-Algo}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{algorithmic}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE $A$ et $B$ sont deux entiers naturels
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE $r
+\backslash
+leftarrow 1$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+WHILE{$r
+\backslash
+neq 0$}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE $r
+\backslash
+leftarrow A$ mod$(B)$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE $A
+\backslash
+leftarrow B$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE $B
+\backslash
+leftarrow C$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+ENDWHILE
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{algorithmic}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{algorithm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+On peut aussi personnaliser le texte des algorithmes.
+ Par exemple pour les traduire en français, il faut inclure les lignes suivantes
+ dans le préambule :
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+algorithmicrequire}{
+\backslash
+textbf{Requiert:}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+algorithmicensure}{
+\backslash
+textbf{Assure:}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+algorithmicend}{
+\backslash
+textbf{fin}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+algorithmicif}{
+\backslash
+textbf{si}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+algorithmicthen}{
+\backslash
+textbf{alors}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+algorithmicelse}{
+\backslash
+textbf{sinon}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+algorithmicendif}{
+\backslash
+textbf{fin si}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+algorithmicfor}{
+\backslash
+textbf{pour}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+algorithmicendfor}{
+\backslash
+textbf{fin pour}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+algorithmicforall}{
+\backslash
+textbf{pour chaque}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+algorithmicwhile}{
+\backslash
+textbf{tant que}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+algorithmicdo}{
+\backslash
+textbf{faire}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+algorithmicendwhile}{
+\backslash
+textbf{fin tant que}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+algorithmicrepeat}{
+\backslash
+textbf{r{
+\backslash
+'{e}}p{
+\backslash
+'{e}}ter}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+algorithmicuntil}{
+\backslash
+textbf{tant que}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Patron de document 
+\end_layout
+
+\begin_layout Standard
+Il est possible de de créer un patron de document sous \SpecialChar LyX
+ qui contient un
+ squelette minimal de document, qu'il suffit ensuite de compléter.
+ 
+\end_layout
+
+\begin_layout Standard
+Pour créer le modèle, il suffit de copier le document lyx 
+\begin_inset Quotes fld
+\end_inset
+
+minimal
+\begin_inset Quotes frd
+\end_inset
+
+ dans le répertoire 
+\begin_inset Quotes fld
+\end_inset
+
+
+\family typewriter
+C:
+\backslash
+Program Files
+\backslash
+Lyx 2.2
+\backslash
+Resources
+\backslash
+templates
+\backslash
+
+\family default
+
+\begin_inset Quotes frd
+\end_inset
+
+ (sous Windows), et de choisir un nom de fichier suffisamment explicite.
+ Le nouveau patron de document est alors accessible quand on choisit le
+ menu 
+\begin_inset Quotes fld
+\end_inset
+
+Fichier->Nouveau avec modèle...
+\begin_inset Quotes frd
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_body
+\end_document
