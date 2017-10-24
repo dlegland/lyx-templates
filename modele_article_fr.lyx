@@ -45,24 +45,38 @@
 
 
 
-% Custom headers and footers
-\usepackage{fancyhdr}
-\pagestyle{fancy}
+% Custom headers and adapted to KOMA-Script
+\usepackage{scrlayer-scrpage}
 \usepackage{lastpage}	
+
+% header
+\lehead*{\slshape\rightmark}
+\rohead*{\slshape\rightmark}
+
+% footer
+\KOMAoptions{footsepline=on}
+\ofoot{\footnotesize page \thepage\ / \pageref{LastPage}}
+\ifoot{\footnotesize \jobname}
+
+
+%% Custom headers and footers
+%\usepackage{fancyhdr}
+%\pagestyle{fancy}
+%\usepackage{lastpage}	
 
 % Header (empty)
 % left side of the header - page g : chapter (sl), page d : page (bf) - plain : nothing
-\lhead[\fancyplain{}{\slshape\rightmark}]{\fancyplain{}{}}
-\chead{}
+%\lhead[\fancyplain{}{\slshape\rightmark}]{\fancyplain{}{}}
+%\chead{}
 % right side of the header - page g : page (bf), page d : section (sl) - plain : nothing
-\rhead[\fancyplain{}{}]{\fancyplain{}{\slshape\rightmark}}
+%\rhead[\fancyplain{}{}]{\fancyplain{}{\slshape\rightmark}}
 
 % Footer (you may change this to your own needs)
-\lfoot{\footnotesize \jobtitle}
-\cfoot{}
-\rfoot{\footnotesize page \thepage\ / \pageref{LastPage}}	% "Page 1 of 2"
-\renewcommand{\headrulewidth}{0.0pt}
-\renewcommand{\footrulewidth}{0.4pt}
+%\lfoot{\footnotesize \jobtitle}
+%\cfoot{}
+%\rfoot{\footnotesize page \thepage\ / \pageref{LastPage}}	% "Page 1 of 2"
+%\renewcommand{\headrulewidth}{0.0pt}
+%\renewcommand{\footrulewidth}{0.4pt}
 
 % left chapter no number, nothing on the right
 \renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
@@ -79,10 +93,11 @@
 
 % some info for populating document title page
 \author{D. Legland}
+%\date{\today}
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
-\language english
+\language french
 \language_package default
 \inputencoding auto
 \fontencoding global
@@ -143,7 +158,7 @@
 \tocdepth 2
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language english
+\quotes_language french
 \papercolumns 1
 \papersides 2
 \paperpagestyle default
@@ -158,27 +173,11 @@
 \begin_body
 
 \begin_layout Title
-Template for article
+Patron de document pour article
 \end_layout
 
 \begin_layout Abstract
-A minimal document to be used as template for short articles in english
-\end_layout
-
-\begin_layout Date
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-today
-\end_layout
-
-\end_inset
-
-
+Patron de document Lyx pour un petit document (article) en français.
 \end_layout
 
 \begin_layout Standard
@@ -202,27 +201,27 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-Some text.
+Du texte.
 \end_layout
 
 \begin_layout Section
-Development
+Développements
 \end_layout
 
 \begin_layout Subsection
-First part
+Première partie
 \end_layout
 
 \begin_layout Standard
-It is possible to include listings.
+Encore du texte.
 \end_layout
 
 \begin_layout Subsection
-Second part
+Deuxième partie
 \end_layout
 
 \begin_layout Standard
-Some more text.
+Encore plus de texte.
 \end_layout
 
 \begin_layout Section
@@ -230,7 +229,11 @@ Conclusion
 \end_layout
 
 \begin_layout Standard
-Final text.
+Texte final.
+\end_layout
+
+\begin_layout Standard
+
 \end_layout
 
 \end_body

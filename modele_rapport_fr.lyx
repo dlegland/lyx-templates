@@ -58,6 +58,7 @@
 \rohead{\slshape\rightmark}
 
 % Outer footer (left of even pages, right of odd pages)
+\KOMAoptions{footsepline=on}
 \ofoot[\footnotesize page \thepage\ / \pageref{LastPage}]{\footnotesize page \thepage\ / \pageref{LastPage}}
 % Center footer: empty
 \cfoot{}
