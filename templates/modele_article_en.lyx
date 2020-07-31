@@ -41,28 +41,22 @@
 \renewcommand{\abstracttextfont}{\color{bl} \small \slshape }	% slanted text
 
 
-% Custom headers and footers
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\usepackage{lastpage}	% for page numbering
+% Custom headers and adapted to KOMA-Script
+\usepackage{scrlayer-scrpage}
+\usepackage{lastpage}	
 
-% Configuration of header
-% left side of the header - page g : chapter (sl), page d : page (bf) - plain : nothing
-\lhead[\fancyplain{}{\slshape\rightmark}]{\fancyplain{}{}}
-% nothing in the center
-\chead{}
-% right side of the header - page g : page (bf), page d : section (sl) - plain : nothing
-\rhead[\fancyplain{}{}]{\fancyplain{}{\slshape\rightmark}}
+% header
+\lehead*{\slshape\rightmark}
+\rohead*{\slshape\rightmark}
 
-% Configuration of footer
-\lfoot{\footnotesize \jobname.lyx}
-\cfoot{}
-\rfoot{\footnotesize Page \thepage\ of \pageref{LastPage}}	% "Page 1 of 2"
-\renewcommand{\headrulewidth}{0.0pt}
-\renewcommand{\footrulewidth}{0.4pt}
+% footer
+\KOMAoptions{footsepline=on}
+\ofoot{\footnotesize page \thepage\ / \pageref{LastPage}}
+\ifoot{\footnotesize \jobname}
 
 % right section with number
 \renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+
 
 % Added by lyx2lyx
 \usepackage[charter]{mathdesign}
@@ -76,6 +70,7 @@
 
 % some info for populating document title page
 \author{D. Legland}
+\date{\today}
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -166,22 +161,6 @@ Template for article with Matlab code
 
 \begin_layout Abstract
 A minimal document to be used as template for short articles in english.
-\end_layout
-
-\begin_layout Date
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-today
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard

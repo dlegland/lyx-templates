@@ -57,28 +57,9 @@
 \ofoot{\footnotesize page \thepage\ / \pageref{LastPage}}
 \ifoot{\footnotesize \jobname}
 
-
-%% Custom headers and footers
-%\usepackage{fancyhdr}
-%\pagestyle{fancy}
-%\usepackage{lastpage}	
-
-% Header (empty)
-% left side of the header - page g : chapter (sl), page d : page (bf) - plain : nothing
-%\lhead[\fancyplain{}{\slshape\rightmark}]{\fancyplain{}{}}
-%\chead{}
-% right side of the header - page g : page (bf), page d : section (sl) - plain : nothing
-%\rhead[\fancyplain{}{}]{\fancyplain{}{\slshape\rightmark}}
-
-% Footer (you may change this to your own needs)
-%\lfoot{\footnotesize \jobtitle}
-%\cfoot{}
-%\rfoot{\footnotesize page \thepage\ / \pageref{LastPage}}	% "Page 1 of 2"
-%\renewcommand{\headrulewidth}{0.0pt}
-%\renewcommand{\footrulewidth}{0.4pt}
-
-% left chapter no number, nothing on the right
+% right section with number
 \renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+
 
 % Added by lyx2lyx
 \usepackage[charter]{mathdesign}

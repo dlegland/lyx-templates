@@ -69,6 +69,7 @@
 % right section with number
 \renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
 
+
 % Added by lyx2lyx
 \usepackage[charter]{mathdesign}
 
