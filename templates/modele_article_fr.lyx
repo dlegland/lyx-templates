@@ -9,7 +9,8 @@
 \usepackage[dvipsnames]{xcolor}
 \usepackage[T1]{fontenc}
 
-\usepackage{hyperref}
+
+% Additional color definitions
 
 \definecolor{bl}{rgb}{0.0,0.2,0.6} 
 
@@ -18,20 +19,19 @@
 \definecolor{lightgray}{rgb}{0.95,0.95,0.95}
 \definecolor{mymauve}{rgb}{0.58,0,0.82}
 
+
+% package for hyperlinks within document
+\usepackage{hyperref}
 \hypersetup{colorlinks=true, citecolor=blue, linkcolor=blue}
 
 
-% package that modifies style of section headers
-\addtokomafont{section}{\color{bl}\scshape \selectfont}
-\addtokomafont{subsection}{\color{bl}\scshape \selectfont}
-\addtokomafont{subsubsection}{\color{bl}\scshape \selectfont}
-%\allsectionsfont{\color{bl}\scshape \selectfont }
+% Setup for layout
+% ----
 
 % setup font style for different title elements
 \setkomafont{title}{\color{bl} \bfseries \scshape}
 \setkomafont{author}{\centering \small}
 \setkomafont{date}{\centering \small}
-
 
 % Change the abstract environment
 \usepackage[runin]{abstract}		% runin option for a run-in title
@@ -43,37 +43,37 @@
 \renewcommand{\abstracttextfont}{\color{bl} \small \slshape }	% slanted text
 
 
+% package that modifies style of section headers
+\addtokomafont{section}{\color{bl}\scshape \selectfont}
+\addtokomafont{subsection}{\color{bl}\scshape \selectfont}
+\addtokomafont{subsubsection}{\color{bl}\scshape \selectfont}
+
 
 % Custom headers and adapted to KOMA-Script
 \usepackage{scrlayer-scrpage}
 \usepackage{lastpage}	
-
 % header
 \lehead*{\slshape\rightmark}
 \rohead*{\slshape\rightmark}
-
 % footer
 \KOMAoptions{footsepline=on}
 \ofoot{\footnotesize page \thepage\ / \pageref{LastPage}}
 \ifoot{\footnotesize \jobname}
-
 % right section with number
 \renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+
+
+% setup of figure captions 
+\usepackage[format=plain,font=it,labelfont=bf]{caption}
 
 
 % Added by lyx2lyx
 \usepackage[charter]{mathdesign}
 
-% setup of figure captions 
-\usepackage[format=plain,font=it,labelfont=bf]{caption}
-
-% enhance the typesetting of matlab code
-\usepackage{matlab-prettifier}
-
 
 % some info for populating document title page
 \author{D. Legland}
-%\date{\today}
+\date{\today}
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -148,7 +148,6 @@
 \papercolumns 1
 \papersides 2
 \paperpagestyle default
-\listings_params "language=Matlab,style={Matlab-editor},numbers=left,tabsize=2,frame=single,breaklines=true,basicstyle={\scriptsize\mlttfamily},aboveskip=5pt,showspaces=false"
 \tracking_changes false
 \output_changes false
 \html_math_output 0
