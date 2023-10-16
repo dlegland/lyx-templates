@@ -64,9 +64,6 @@
 % setup of figure captions 
 \usepackage[format=plain,font=it,labelfont=bf]{caption}
 
-% enhance the typesetting of matlab code
-\usepackage{matlab-prettifier}
-
 
 % some info for populating document title page
 \author{D. Legland}
@@ -156,11 +153,12 @@
 \begin_body
 
 \begin_layout Title
-Template for article with Matlab code
+Template for article
 \end_layout
 
 \begin_layout Abstract
 A minimal document to be used as template for short articles in english.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -184,7 +182,12 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-Some text.
+This is a minimal document to be used as template for short articles in
+ english.
+ Author and date have to be modified in the preamble (Document\SpecialChar menuseparator
+Parameters\SpecialChar menuseparator
+LaTeX
+ Preamble).
 \end_layout
 
 \begin_layout Section
@@ -196,32 +199,7 @@ First part
 \end_layout
 
 \begin_layout Standard
-It is possible to include listings :
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
->> % some Matlab example code
-\end_layout
-
-\begin_layout Plain Layout
-
->> disp(sprintf('value of PI is %f', pi));
-\end_layout
-
-\begin_layout Plain Layout
-
-value of PI is 3.141593
-\end_layout
-
-\end_inset
-
-
+Some text.
 \end_layout
 
 \begin_layout Subsection

@@ -156,7 +156,7 @@
 \begin_body
 
 \begin_layout Title
-Template for article with Matlab code
+Template for article, with Matlab code
 \end_layout
 
 \begin_layout Abstract
@@ -184,7 +184,16 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-Some text.
+This is a minimal document to be used as template for short articles in
+ english.
+ Author and date have to be modified in the preamble (Document\SpecialChar menuseparator
+Parameters\SpecialChar menuseparator
+LaTeX
+ Preamble).
+\end_layout
+
+\begin_layout Standard
+This template also contains settings for typesetting Matlab listings.
 \end_layout
 
 \begin_layout Section
