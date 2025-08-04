@@ -1,8 +1,12 @@
 # lyx-templates
 Document templates for LaTeX / LyX
 
-This repository contains a collection of templates for LyX software. Templates are based on KOMA-scripts, 
-and include additional configurations for fonts, colors, minimal document structures,
+This repository contains a collection of templates for the [LyX software](https://www.lyx.org/).
+LyX is a document processor that encourages an approach to writing based on the structure of the document (WYSIWYM: What You See Is what You **Mean**) 
+rather than on the appearance (WYSIWYG). 
+
+The templates are based on the KOMA-scripts package. 
+They include additional configurations for fonts, colors, minimal document structures,
 default settings for some programming langages (Java or Matlab), settings for french language...
 
 ## Installation
@@ -15,4 +19,24 @@ To install a template, it suffices to copy the corresponding LyX file into the a
 
 ## Usage
 
-From LyX, simply click on File -> Open With Template... and select the appropriate template. From version 2.4, it is possible to filter user templates.
+From LyX, simply click on File -> Open With Template... and select the appropriate template. 
+Starting from version 2.4, it is possible to filter user templates from system templates.
+
+## List of templates
+
+The templates are organized in a hierarchy of directories that allows to sort them according to the target langauge (english, french...)
+and the type of document (articles, reports...).
+
+* en
+  * Articles
+    * **Article_KOMA-Script_en.lyx**: simple template for a technical note written in english
+    * **Article_KOMA-Script_Matlab.lyx**: simple template for a technical note written in english, with Listing configfuration for the Matlab language
+  * Reports
+    * **Report_KOMA-Script_en.lyx**: simple template for a report written in english
+* fr
+  * Articles
+    * **Article_KOMA-Script_fr.lyx**: simple template for a technical note written in french
+    * **Article_KOMA-Script_Java_fr.lyx**: simple template for a technical note written in french, with Listing configfuration for the Java language
+  * Reports
+    * **Report_KOMA-Script_en.lyx**: simple template for a report written in french
+
