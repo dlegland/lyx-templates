@@ -1,0 +1,374 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass scrreprt
+\begin_preamble
+\usepackage[dvipsnames]{xcolor}
+\usepackage[T1]{fontenc}
+
+\definecolor{bl}{rgb}{0.0,0.2,0.6} 
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{lightgray}{rgb}{0.95,0.95,0.95}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\hypersetup{colorlinks=true, citecolor=blue, linkcolor=blue}
+
+% package that modifies style of section headers
+\addtokomafont{chapter}{\color{bl}\scshape \selectfont}
+\addtokomafont{section}{\color{bl}\scshape \selectfont}
+\addtokomafont{subsection}{\color{bl}\scshape \selectfont}
+\addtokomafont{subsubsection}{\color{bl}\scshape \selectfont}
+
+% setup font style for different title elements
+\setkomafont{title}{\color{bl} \bfseries \scshape}
+\setkomafont{author}{\centering \small}
+\setkomafont{date}{\centering \small}
+
+
+% Change the abstract environment
+\usepackage[runin]{abstract}		% runin option for a run-in title
+\setlength\absleftindent{30pt}		% left margin
+\setlength\absrightindent{30pt}		% right margin
+\abslabeldelim{\quad }			
+\setlength{\abstitleskip}{-10pt}
+\renewcommand{\abstractname}{}
+\renewcommand{\abstracttextfont}{\color{bl} \small \slshape }	% slanted text
+
+
+% Custom headers and adapted to KOMA-Script
+\usepackage{scrlayer-scrpage}
+\usepackage{lastpage}	
+
+% header% Left header: chapter title on even pages
+\lehead{\slshape\leftmark}
+\lohead{}
+% Center header: empty
+\chead{}
+% Right header: section title on odd pages
+\rehead{}
+\rohead{\slshape\rightmark}
+
+% Outer footer (left of even pages, right of odd pages)
+\KOMAoptions{footsepline=on}
+\ofoot[\footnotesize page \thepage\ / \pageref{LastPage}]{\footnotesize page \thepage\ / \pageref{LastPage}}
+% Center footer: empty
+\cfoot{}
+% Inner footer (right of even pages, left of odd pages)
+\ifoot[\footnotesize \jobname]{\footnotesize \jobname}
+
+% left chapter no number, nothing on the right
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter\ #1}{}}
+% right section with number
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+
+
+% right section with number
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+
+
+% Added by lyx2lyx
+\usepackage[charter]{mathdesign}
+
+% setup of figure captions 
+\usepackage[format=plain,font=it,labelfont=bf]{caption}
+
+% To add mini-TOC in the beginning of each chapter
+% The 'nohints' option is to prevent a conflict with the lastpage package, 
+% resulting in an extra empty page at the end of the document.
+\usepackage[nohints]{minitoc}
+
+
+% some info for populating document title page
+% update with your name...
+\author{D. Legland}
+\date{\today}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children no
+\language english
+\language_package default
+\inputencoding auto-legacy
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format pdf2
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement h
+\float_alignment class
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize a4
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 1
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 2
+\paperpagestyle default
+\tablestyle default
+\listings_params "language=Java,numbers=left,tabsize=2,frame=single,breaklines=true,basicstyle={\scriptsize\ttfamily},commentstyle={\color{OliveGreen}\itshape},stringstyle={\color{red}},aboveskip=5pt"
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Template for report
+\end_layout
+
+\begin_layout Abstract
+A minimal document to be used as template for reports in english.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+dominitoc
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Introduction
+\end_layout
+
+\begin_layout Standard
+This is a minimal document to be used as template for short articles in english.
+ Author and date have to be modified in the preamble (Document\SpecialChar menuseparator
+Parameters\SpecialChar menuseparator
+LaTeX Preamble).
+\end_layout
+
+\begin_layout Chapter
+Development
+\end_layout
+
+\begin_layout Standard
+An example of chapter including a mini table of content.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+minitoc
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+First part
+\end_layout
+
+\begin_layout Standard
+Some text.
+\end_layout
+
+\begin_layout Subsection
+Example of Listing
+\end_layout
+
+\begin_layout Standard
+An example of listings:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+/**
+\end_layout
+
+\begin_layout Plain Layout
+
+ * Computes the average of the values within the input array.
+\end_layout
+
+\begin_layout Plain Layout
+
+ */
+\end_layout
+
+\begin_layout Plain Layout
+
+public double average(double[] values) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    int n = values.length;
+\end_layout
+
+\begin_layout Plain Layout
+
+    double sum = 0.0;
+ // initialisation
+\end_layout
+
+\begin_layout Plain Layout
+
+    // iterate over values
+\end_layout
+
+\begin_layout Plain Layout
+
+    for (int i = 0;
+ i < n;
+ i++) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        sum += values[i];
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+    return sum / n;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Sub Two
+\end_layout
+
+\begin_layout Standard
+Text of sub-section
+\end_layout
+
+\begin_layout Section
+Second part
+\end_layout
+
+\begin_layout Standard
+Some more text.
+\end_layout
+
+\begin_layout Chapter
+Conclusion
+\end_layout
+
+\begin_layout Standard
+Final text.
+\end_layout
+
+\end_body
+\end_document
