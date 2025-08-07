@@ -1,5 +1,5 @@
-#LyX 2.3 created this file. For more info see http://www.lyx.org/
-\lyxformat 544
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -70,11 +70,11 @@
 \date{\today}
 \end_preamble
 \use_default_options true
-\maintain_unincluded_children false
+\maintain_unincluded_children no
 \language english
 \language_package default
-\inputencoding auto
-\fontencoding global
+\inputencoding auto-legacy
+\fontencoding auto
 \font_roman "default" "default"
 \font_sans "default" "default"
 \font_typewriter "default" "default"
@@ -82,7 +82,9 @@
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
-\font_osf false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
 \use_microtype false
@@ -93,6 +95,7 @@
 \bibtex_command default
 \index_command default
 \float_placement h
+\float_alignment class
 \paperfontsize default
 \spacing single
 \use_hyperref true
@@ -105,7 +108,7 @@
 \pdf_colorlinks false
 \pdf_backref false
 \pdf_pdfusetitle true
-\papersize a4paper
+\papersize a4
 \use_geometry false
 \use_package amsmath 1
 \use_package amssymb 1
@@ -126,7 +129,9 @@
 \suppress_date false
 \justification true
 \use_refstyle 0
+\use_formatted_ref 0
 \use_minted 0
+\use_lineno 0
 \index Index
 \shortcut idx
 \color #008000
@@ -142,12 +147,17 @@
 \papercolumns 1
 \papersides 2
 \paperpagestyle default
-\listings_params "language=Matlab,style={Matlab-editor},numbers=left,tabsize=2,frame=single,breaklines=true,basicstyle={\scriptsize\mlttfamily},aboveskip=5pt,showspaces=false"
+\tablestyle default
+\listings_params "language=Java,numbers=left,tabsize=2,frame=single,breaklines=true,basicstyle={\scriptsize\ttfamily},commentstyle={\color{OliveGreen}\itshape},stringstyle={\color{red}},aboveskip=5pt"
 \tracking_changes false
 \output_changes false
+\change_bars false
+\postpone_fragile_content false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
 \end_header
 
 \begin_body
@@ -182,12 +192,10 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-This is a minimal document to be used as template for short articles in
- english.
+This is a minimal document to be used as template for short articles in english.
  Author and date have to be modified in the preamble (Document\SpecialChar menuseparator
 Parameters\SpecialChar menuseparator
-LaTeX
- Preamble).
+LaTeX Preamble).
 \end_layout
 
 \begin_layout Section
